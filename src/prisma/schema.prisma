@@ -1,0 +1,24 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("mongodb://localhost:27017/book-review")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Book {
+  id          String   @id @default(cuid()) @map("_id")
+  title       String
+  author      String
+  description String
+  reviews     Review[]
+}
+
+model Review {
+  id      String @id @default(cuid()) @map("_id")
+  rating  Int
+  comment String
+  book    Book   @relation(fields: [bookId], references: [id])
+  bookId  String
+}
