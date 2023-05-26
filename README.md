@@ -6,3 +6,6 @@ The app is not completed. Backend needs to be connected to accept reviews.
 
 ***TO DO***
 1. Connect the reviews to post to the backend.
+
+
+Npm start to run app.
